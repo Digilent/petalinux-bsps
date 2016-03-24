@@ -1,0 +1,4 @@
+This PetaLinux Zybo BSP is based on the linux_bd project. Zybo
+project can be found in the following link:
+	https://github.com/Digilent/ZYBO/tree/master/Projects/linux_bd
+Please follow the instruction to recreate the hardware project.

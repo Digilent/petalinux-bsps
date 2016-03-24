@@ -1,0 +1,14 @@
+###############################################################################
+# Please modify this file if you want to configure your own application.
+# You can uncommon and/or change the following Kconfig elements.
+###############################################################################
+
+
+if ROOTFS_COMPONENT_APPS_NAME_INITTAB_CUSTOMISATION
+	comment "No additional options for INITTAB_CUSTOMISATION"
+
+# 	config APPS_INITTAB_CUSTOMISATION_OPTION0
+#	bool "option0"
+#	help
+#	  Help text
+endif
