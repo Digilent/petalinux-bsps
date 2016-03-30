@@ -51696,8 +51696,8 @@ c06911a4 T __initramfs_start
 c06911a4 t __irf_start
 c06911a4 T __security_initcall_end
 c06911a4 T __security_initcall_start
-c09539d5 t __irf_end
-c09539d8 T __initramfs_size
+c09539f0 T __initramfs_size
+c09539f0 t __irf_end
 c0954000 D __per_cpu_load
 c0954000 D __per_cpu_start
 c0954000 d cpu_loops_per_jiffy
