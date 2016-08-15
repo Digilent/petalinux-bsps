@@ -1,0 +1,117 @@
+/* Workarounds for petalinux configurations */
+#ifndef __PLNX_PLATFORM_TOP_H
+#define __PLNX_PLATFORM_TOP_H
+
+#ifdef CONFIG_FIT
+# undef CONFIG_FIT
+#endif
+
+#ifdef CONFIG_FIT_VERBOSE
+# undef CONFIG_FIT_VERBOSE
+#endif
+
+#ifdef CONFIG_BOOTDELAY
+# undef CONFIG_BOOTDELAY
+#endif
+
+#ifdef CONFIG_CMD_MMC
+# undef CONFIG_CMD_MMC
+#endif
+
+#ifdef CONFIG_CMD_CACHE
+# undef CONFIG_CMD_CACHE
+#endif
+
+#ifdef CONFIG_CMD_EXT2
+# undef CONFIG_CMD_EXT2
+#endif
+
+#ifdef CONFIG_CMD_EXT4_WRITE
+# undef CONFIG_CMD_EXT4_WRITE
+#endif
+
+#ifdef CONFIG_CMD_FAT
+# undef CONFIG_CMD_FAT
+#endif
+
+#ifdef CONFIG_ZYNQ_SDHCI
+# undef CONFIG_ZYNQ_SDHCI
+#endif
+
+#ifdef CONFIG_SYS_HZ
+# undef CONFIG_SYS_HZ
+#endif
+
+#ifdef CONFIG_OF_LIBFDT
+# undef CONFIG_OF_LIBFDT
+#endif
+
+#include <configs/platform-auto.h>
+
+#ifdef CONFIG_SYS_MALLOC_LEN
+# undef CONFIG_SYS_MALLOC_LEN
+#endif
+#define CONFIG_SYS_MALLOC_LEN	0x1400000
+
+#ifdef CONFIG_SYS_INIT_RAM_ADDR
+# undef CONFIG_SYS_INIT_RAM_ADDR
+#endif
+#define CONFIG_SYS_INIT_RAM_ADDR	CONFIG_SYS_SDRAM_BASE
+
+#ifdef CONFIG_SYS_INIT_RAM_SIZE
+# undef CONFIG_SYS_INIT_RAM_SIZE
+#endif
+#define CONFIG_SYS_INIT_RAM_SIZE	CONFIG_SYS_MALLOC_LEN
+
+#ifdef CONFIG_ZYNQ_GEM_PHY_ADDR0
+# undef CONFIG_ZYNQ_GEM_PHY_ADDR0
+#endif
+#define CONFIG_ZYNQ_GEM_PHY_ADDR0	1
+
+#ifdef CONFIG_SYS_TEXT_BASE
+# undef CONFIG_SYS_TEXT_BASE
+#endif
+#define CONFIG_SYS_TEXT_BASE	0x4000000
+
+/* additional config setting for Arty-Z */
+#define CONFIG_ZYNQ_USB
+
+#define CONFIG_ZYNQ_I2C0
+#define CONFIG_ZYNQ_I2C1
+#define CONFIG_SYS_I2C_EEPROM_ADDR_LEN 1
+#define CONFIG_CMD_EEPROM
+#define CONFIG_DISPLAY
+#define CONFIG_I2C_EDID
+
+/* GEM MAC address offset */
+#define CONFIG_ZYNQ_GEM_SPI_MAC_OFFSET	0x20
+
+#if defined(CONFIG_ZYNQ_I2C0) || defined(CONFIG_ZYNQ_I2C1)
+#define CONFIG_SYS_I2C_ZYNQ
+#endif
+
+/* I2C */
+#if defined(CONFIG_SYS_I2C_ZYNQ)
+# define CONFIG_SYS_I2C
+# define CONFIG_SYS_I2C_ZYNQ_SPEED             100000
+# define CONFIG_SYS_I2C_ZYNQ_SLAVE             0
+#endif /* CONFIG_SYS_I2C_ZYNQ */
+
+#ifdef CONFIG_ZYNQ_USB
+# define CONFIG_USB_EHCI
+# define CONFIG_USB_STORAGE
+# define CONFIG_USB_EHCI_ZYNQ
+# define CONFIG_EHCI_IS_TDI
+# define CONFIG_USB_MAX_CONTROLLER_COUNT       2
+
+# define CONFIG_SYS_DFU_DATA_BUF_SIZE  0x600000
+# define DFU_DEFAULT_POLL_TIMEOUT      300
+# define CONFIG_USB_FUNCTION_DFU
+# define CONFIG_DFU_RAM
+# define CONFIG_USB_CABLE_CHECK
+# define CONFIG_CMD_THOR_DOWNLOAD
+# define CONFIG_USB_FUNCTION_THOR
+# define CONFIG_DISPLAY_BOARDINFO
+#endif /* CONFIG_ZYNQ_USB */
+
+#endif /* __PLNX_PLATFORM_TOP_H */

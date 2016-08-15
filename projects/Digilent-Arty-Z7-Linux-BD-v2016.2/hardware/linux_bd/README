@@ -1,0 +1,4 @@
+This PetaLinux Arty-Z7 BSP is based on the linux_bd project.
+project can be found in the following link:
+	https://github.com/Digilent/Arty-Z7/tree/fdfe4800cac39a8b5707b7d5d8464ca9fac6135a/Projects/linux_bd
+Please follow the instruction to recreate the hardware project.
